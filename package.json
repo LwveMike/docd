@@ -1,0 +1,38 @@
+{
+  "name": "docd-puppeteer",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build:vite": "vue-tsc && vite build",
+    "build:docd": "unbuild",
+    "start:docd": "node ${PWD}/dist/exporter/main.cjs",
+    "build": "nr build:vite && nr build:docd",
+    "b": "nr build && nr start:docd",
+    "preview": "vite preview",
+    "build:pkg": "pkg --config package.json ${PWD}/dist/exporter/main.cjs"
+  },
+  "dependencies": {
+    "@noction/vue-highcharts": "^1.0.4",
+    "highcharts": "^11.2.0",
+    "pkg": "^5.8.1",
+    "puppeteer-core": "^21.5.2",
+    "unbuild": "^2.0.0",
+    "vue": "^3.3.8"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.5.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0",
+    "vue-tsc": "^1.8.22"
+  },
+  "engines": {
+    "node": "^18"
+  },
+  "packageManager": "pnpm@8.9.2",
+  "pkg": {
+    "assets": ["./src/templates/**", "./dist/docdUI.umd.js"],
+    "targets": ["node18-macos-x64"],
+    "outputPath": "dist"
+    }
+}
