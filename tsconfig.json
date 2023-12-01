@@ -14,6 +14,7 @@
     "noEmit": true,
     "jsx": "preserve",
     "baseUrl": ".",
+    "strictPropertyInitialization": false,
 
     /* Linting */
     "strict": true,

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import TipoChart from './components/TipoChart.vue';
+import GridProvider from './components/GridProvider.vue';
 </script>
 
 <template>
   <div>
-    <TipoChart />
+    <grid-provider />
   </div>
 </template>
 

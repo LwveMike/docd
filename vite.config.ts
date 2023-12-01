@@ -12,7 +12,7 @@ export default defineConfig({
       formats: ['umd'],
       fileName: JS_SCRIPT_NAME,
       name: JS_SCRIPT_NAME
-    }
+    },
   },
   define: {
     'process': JSON.stringify(BROWSER_PROCESS_POLYFILL)
