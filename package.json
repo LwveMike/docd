@@ -15,6 +15,7 @@
   "dependencies": {
     "@noction/vue-highcharts": "^1.0.4",
     "highcharts": "^11.2.0",
+    "nats": "^2.18.0",
     "pkg": "^5.8.1",
     "puppeteer-core": "^21.5.2",
     "unbuild": "^2.0.0",
