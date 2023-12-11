@@ -33,7 +33,8 @@
   "packageManager": "pnpm@8.9.2",
   "pkg": {
     "assets": [
-      "./src/templates/**",
+      "./src/templates/index.html",
+      "./dist/style.css",
       "./dist/docdUI.umd.js"
     ],
     "targets": [

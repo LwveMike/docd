@@ -13,12 +13,13 @@ const options = reactive({
     width: 600,
     height: 400,
     animation: false,
+    styledMode: true,
     events: {
       load: () => {
-        console.log('loaded');
       },
       redraw: () => {
         console.log('redrawn');
+        window.downloadPDF();
       },
       render: () => {
         console.log('render')

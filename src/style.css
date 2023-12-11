@@ -1,0 +1,5 @@
+@import url("highcharts/css/highcharts.css");
+
+.highcharts-background {
+  fill: red;
+}

@@ -18,7 +18,7 @@ type PageWithId = Page & { _noc_id: number }
 
 export class ManagerImpl {
   private readonly _rootPath = resolve(fileURLToPath(import.meta.url), '../../../')
-  private readonly _chromiumPath = '/private/tmp/chrome/mac-119.0.6045.105/chrome-mac-x64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing' as const
+  private readonly _chromiumPath = '/tmp/chrome/mac-120.0.6099.71/chrome-mac-x64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome For Testing' as const
   private _puppeteer: PuppeteerNode
   private _browser: Browser
   private _pages: PageWithId[] = []
@@ -50,6 +50,12 @@ export class ManagerImpl {
     page.setContent(html, { waitUntil: 'domcontentloaded' })
   }
 
+  private async _setStyle (page: PageWithId) {
+    const path = resolve(this._rootPath, `./dist/style.css`)
+
+    page.addStyleTag({ path })
+  }
+
   private async _setScript(page: Page) {
     const path = resolve(this._rootPath, `./dist/${JS_SCRIPT_NAME}.umd.js`)
 
@@ -66,8 +72,17 @@ export class ManagerImpl {
     await page.emulateMediaType('screen')
 
     await this._setHTML(page)
+    await this._setStyle(page)
     await this._setScript(page)
   }
+
+  // private async _setStyle (page: PageWithId) {
+  //   const stylePath = resolve(this._rootPath, `./dist/style.css`)
+    
+  //   const html = await readFile(stylePath, { encoding: 'utf-8'})
+
+  //   page.setContent(html, { waitUntil: 'domcontentloaded' })
+  // }
 
   private async _exposeFunctions (page: PageWithId) {
     page.exposeFunction('downloadPDF', async () => {
